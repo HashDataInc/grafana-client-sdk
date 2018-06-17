@@ -1,0 +1,1660 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Grafana Restful API.",
+    "version": "v1.0",
+    "title": "Grafana",
+    "termsOfService": "Terms of service",
+    "contact": {
+      "name": "Zhanwei Wang",
+      "url": "http://www.hashdata.cn",
+      "email": "wang@hashdata.cn"
+    },
+    "license": {
+      "name": "License of API",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "grafana-dashboard-endpoint",
+      "description": "Grafana Dashboard Endpoint"
+    },
+    {
+      "name": "grafana-data-source-endpoint",
+      "description": "Grafana Data Source Endpoint"
+    },
+    {
+      "name": "grafana-folder-endpoint",
+      "description": "Grafana Folder Endpoint"
+    }
+  ],
+  "paths": {
+    "/api/dashboards/db": {
+      "post": {
+        "tags": [
+          "grafana-dashboard-endpoint"
+        ],
+        "summary": "CreateAndUpdateDashboard",
+        "operationId": "CreateAndUpdateDashboardUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SaveDashboardCommand"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CreateDashboardResponse"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ROLE_USER"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/dashboards/home": {
+      "get": {
+        "tags": [
+          "grafana-dashboard-endpoint"
+        ],
+        "summary": "GetHomeDashboard",
+        "operationId": "GetHomeDashboardUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "uid",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DashboardFullWithMeta"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ROLE_USER"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/dashboards/tags": {
+      "get": {
+        "tags": [
+          "grafana-dashboard-endpoint"
+        ],
+        "summary": "GetDashboardTags",
+        "operationId": "GetDashboardTagsUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DashboardTagCloudItem"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ROLE_USER"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/dashboards/uid/{uid}": {
+      "get": {
+        "tags": [
+          "grafana-dashboard-endpoint"
+        ],
+        "summary": "GetDashboardByUID",
+        "operationId": "GetDashboardByUIDUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "uid",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DashboardFullWithMeta"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ROLE_USER"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "grafana-dashboard-endpoint"
+        ],
+        "summary": "DeleteDashboardByUID",
+        "operationId": "DeleteDashboardByUIDUsingDELETE",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "uid",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ROLE_USER"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/datasources": {
+      "get": {
+        "tags": [
+          "grafana-data-source-endpoint"
+        ],
+        "summary": "GetDataSources",
+        "operationId": "GetDataSourcesUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DataSourceListItem"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ROLE_USER"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "grafana-data-source-endpoint"
+        ],
+        "summary": "AddDataSource",
+        "operationId": "AddDataSourceUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddDataSourceCommand"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CreateDataSourceResponse"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ROLE_USER"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/datasources/id/{name}": {
+      "get": {
+        "tags": [
+          "grafana-data-source-endpoint"
+        ],
+        "summary": "GetDataSourceIDByName",
+        "operationId": "GetDataSourceIDByNameUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "name",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Id"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ROLE_USER"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/datasources/name/{name}": {
+      "get": {
+        "tags": [
+          "grafana-data-source-endpoint"
+        ],
+        "summary": "GetDataSourceByName",
+        "operationId": "GetDataSourceByNameUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "name",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataSource"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ROLE_USER"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "grafana-data-source-endpoint"
+        ],
+        "summary": "DeleteDataSourceByName",
+        "operationId": "DeleteDataSourceByNameUsingDELETE",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "name",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/SuccessMessage"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ROLE_USER"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/datasources/{id}": {
+      "get": {
+        "tags": [
+          "grafana-data-source-endpoint"
+        ],
+        "summary": "GetDataSourceByID",
+        "operationId": "GetDataSourceByIDUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataSource"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ROLE_USER"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "grafana-data-source-endpoint"
+        ],
+        "summary": "UpdateDataSource",
+        "operationId": "UpdateDataSourceUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateDataSourceCommand"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CreateDataSourceResponse"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ROLE_USER"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "grafana-data-source-endpoint"
+        ],
+        "summary": "DeleteDataSourceByID",
+        "operationId": "DeleteDataSourceByIDUsingDELETE",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/SuccessMessage"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ROLE_USER"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/folders": {
+      "get": {
+        "tags": [
+          "grafana-folder-endpoint"
+        ],
+        "summary": "GetFolders",
+        "operationId": "GetFoldersUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FolderSearchHit"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ROLE_USER"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "grafana-folder-endpoint"
+        ],
+        "summary": "CreateFolder",
+        "operationId": "CreateFolderUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateFolderCommand"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Folder"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ROLE_USER"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/folders/{uid}": {
+      "get": {
+        "tags": [
+          "grafana-folder-endpoint"
+        ],
+        "summary": "GetFolderByUID",
+        "operationId": "GetFolderByUIDUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "uid",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Folder"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ROLE_USER"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "grafana-folder-endpoint"
+        ],
+        "summary": "UpdateFolder",
+        "operationId": "UpdateFolderUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateFolderCommand"
+            }
+          },
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "uid",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Folder"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ROLE_USER"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "grafana-folder-endpoint"
+        ],
+        "summary": "DeleteFolder",
+        "operationId": "DeleteFolderUsingDELETE",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "uid",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ROLE_USER"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "oauth2": {
+      "type": "oauth2",
+      "tokenUrl": "/oauth/token",
+      "flow": "password",
+      "scopes": {
+        "ROLE_USER": "login as user",
+        "ROLE_SUPERVISOR": "login as supervisor"
+      }
+    }
+  },
+  "definitions": {
+    "AddDataSourceCommand": {
+      "type": "object",
+      "properties": {
+        "access": {
+          "type": "string"
+        },
+        "basicAuth": {
+          "type": "boolean"
+        },
+        "basicAuthPassword": {
+          "type": "string"
+        },
+        "basicAuthUser": {
+          "type": "string"
+        },
+        "database": {
+          "type": "string"
+        },
+        "default": {
+          "type": "boolean"
+        },
+        "jsonData": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "readOnly": {
+          "type": "boolean"
+        },
+        "secureJsonData": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "type": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "user": {
+          "type": "string"
+        },
+        "withCredentials": {
+          "type": "boolean"
+        }
+      },
+      "title": "AddDataSourceCommand"
+    },
+    "Annotations": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "Annotations"
+    },
+    "CreateDashboardResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "uid": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "CreateDashboardResponse"
+    },
+    "CreateDataSourceResponse": {
+      "type": "object",
+      "properties": {
+        "datasource": {
+          "$ref": "#/definitions/DataSource"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "message": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "CreateDataSourceResponse"
+    },
+    "CreateFolderCommand": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "uid": {
+          "type": "string"
+        }
+      },
+      "title": "CreateFolderCommand"
+    },
+    "CurrentSelectedVariable": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "title": "CurrentSelectedVariable"
+    },
+    "Dashboard": {
+      "type": "object",
+      "properties": {
+        "annotations": {
+          "$ref": "#/definitions/Annotations"
+        },
+        "editable": {
+          "type": "boolean"
+        },
+        "graphTooltip": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "hideControls": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "panels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Panel"
+          }
+        },
+        "refresh": {
+          "type": "string"
+        },
+        "schemaVersion": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "style": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "templating": {
+          "$ref": "#/definitions/Templating"
+        },
+        "time": {
+          "$ref": "#/definitions/Time"
+        },
+        "timepicker": {
+          "$ref": "#/definitions/TimePicker"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "uid": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "Dashboard"
+    },
+    "DashboardFullWithMeta": {
+      "type": "object",
+      "properties": {
+        "dashboard": {
+          "$ref": "#/definitions/Dashboard"
+        },
+        "meta": {
+          "$ref": "#/definitions/DashboardMeta"
+        }
+      },
+      "title": "DashboardFullWithMeta"
+    },
+    "DashboardMeta": {
+      "type": "object",
+      "properties": {
+        "canAdmin": {
+          "type": "boolean"
+        },
+        "canEdit": {
+          "type": "boolean"
+        },
+        "canSave": {
+          "type": "boolean"
+        },
+        "canStar": {
+          "type": "boolean"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "expires": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "folder": {
+          "type": "boolean"
+        },
+        "folderId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "folderTitle": {
+          "type": "string"
+        },
+        "folderUrl": {
+          "type": "string"
+        },
+        "hasAcl": {
+          "type": "boolean"
+        },
+        "home": {
+          "type": "boolean"
+        },
+        "provisioned": {
+          "type": "boolean"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "snapshot": {
+          "type": "boolean"
+        },
+        "starred": {
+          "type": "boolean"
+        },
+        "type": {
+          "type": "string"
+        },
+        "updated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "DashboardMeta"
+    },
+    "DashboardTagCloudItem": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "term": {
+          "type": "string"
+        }
+      },
+      "title": "DashboardTagCloudItem"
+    },
+    "DataSource": {
+      "type": "object",
+      "properties": {
+        "access": {
+          "type": "string"
+        },
+        "basicAuth": {
+          "type": "boolean"
+        },
+        "basicAuthPassword": {
+          "type": "string"
+        },
+        "basicAuthUser": {
+          "type": "string"
+        },
+        "database": {
+          "type": "string"
+        },
+        "default": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "jsonData": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "orgId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "password": {
+          "type": "string"
+        },
+        "readOnly": {
+          "type": "boolean"
+        },
+        "secureJsonFields": {
+          "type": "boolean"
+        },
+        "type": {
+          "type": "string"
+        },
+        "typeLogoUrl": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "user": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "withCredentials": {
+          "type": "boolean"
+        }
+      },
+      "title": "DataSource"
+    },
+    "DataSourceListItem": {
+      "type": "object",
+      "properties": {
+        "access": {
+          "type": "string"
+        },
+        "basicAuth": {
+          "type": "boolean"
+        },
+        "database": {
+          "type": "string"
+        },
+        "default": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "jsonData": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "orgId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "password": {
+          "type": "string"
+        },
+        "readOnly": {
+          "type": "boolean"
+        },
+        "type": {
+          "type": "string"
+        },
+        "typeLogoUrl": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "user": {
+          "type": "string"
+        }
+      },
+      "title": "DataSourceListItem"
+    },
+    "Folder": {
+      "type": "object",
+      "properties": {
+        "canAdmin": {
+          "type": "boolean"
+        },
+        "canEdit": {
+          "type": "boolean"
+        },
+        "canSave": {
+          "type": "boolean"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "hasAcl": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "title": {
+          "type": "string"
+        },
+        "uid": {
+          "type": "string"
+        },
+        "updated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "Folder"
+    },
+    "FolderSearchHit": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "title": {
+          "type": "string"
+        },
+        "uid": {
+          "type": "string"
+        }
+      },
+      "title": "FolderSearchHit"
+    },
+    "GridPos": {
+      "type": "object",
+      "properties": {
+        "h": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "w": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "x": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "y": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "GridPos"
+    },
+    "Id": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "Id"
+    },
+    "Message": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "title": "Message"
+    },
+    "Panel": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string"
+        },
+        "gridPos": {
+          "$ref": "#/definitions/GridPos"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "title": "Panel"
+    },
+    "SaveDashboardCommand": {
+      "type": "object",
+      "properties": {
+        "dashboard": {
+          "$ref": "#/definitions/Dashboard"
+        },
+        "folder": {
+          "type": "boolean"
+        },
+        "folderId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "message": {
+          "type": "string"
+        },
+        "overwrite": {
+          "type": "boolean"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "SaveDashboardCommand"
+    },
+    "SuccessMessage": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "SuccessMessage"
+    },
+    "TemplateVariable": {
+      "type": "object",
+      "properties": {
+        "allFormat": {
+          "type": "string"
+        },
+        "current": {
+          "$ref": "#/definitions/CurrentSelectedVariable"
+        },
+        "datasource": {
+          "type": "string"
+        },
+        "includeAll": {
+          "type": "boolean"
+        },
+        "multi": {
+          "type": "boolean"
+        },
+        "multiFormat": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VariableOption"
+          }
+        },
+        "query": {
+          "type": "string"
+        },
+        "refresh": {
+          "type": "boolean"
+        },
+        "regex": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "title": "TemplateVariable"
+    },
+    "Templating": {
+      "type": "object",
+      "properties": {
+        "enable": {
+          "type": "boolean"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TemplateVariable"
+          }
+        }
+      },
+      "title": "Templating"
+    },
+    "Time": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        }
+      },
+      "title": "Time"
+    },
+    "TimePicker": {
+      "type": "object",
+      "title": "TimePicker"
+    },
+    "UpdateDataSourceCommand": {
+      "type": "object",
+      "properties": {
+        "access": {
+          "type": "string"
+        },
+        "basicAuth": {
+          "type": "boolean"
+        },
+        "basicAuthPassword": {
+          "type": "string"
+        },
+        "basicAuthUser": {
+          "type": "string"
+        },
+        "database": {
+          "type": "string"
+        },
+        "default": {
+          "type": "boolean"
+        },
+        "jsonData": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "readOnly": {
+          "type": "boolean"
+        },
+        "secureJsonData": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "user": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "withCredentials": {
+          "type": "boolean"
+        }
+      },
+      "title": "UpdateDataSourceCommand"
+    },
+    "UpdateFolderCommand": {
+      "type": "object",
+      "properties": {
+        "overwrite": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string"
+        },
+        "uid": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "UpdateFolderCommand"
+    },
+    "VariableOption": {
+      "type": "object",
+      "properties": {
+        "selected": {
+          "type": "boolean"
+        },
+        "text": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "title": "VariableOption"
+    }
+  }
+}

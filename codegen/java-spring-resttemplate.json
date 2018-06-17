@@ -1,0 +1,12 @@
+{
+  "modelPackage": "cn.hashdata.grafana.model",
+  "apiPackage": "cn.hashdata.grafana.api",
+  "groupId": "cn.hashdata",
+  "artifactId": "grafana-client-spring-sdk",
+  "artifactVersion": "1.0.0",
+  "artifactDescription": "Grafana client SDK for spring",
+  "licenseName": "Apache License v2",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "dateLibrary": "java8",
+  "library": "resttemplate"
+}
