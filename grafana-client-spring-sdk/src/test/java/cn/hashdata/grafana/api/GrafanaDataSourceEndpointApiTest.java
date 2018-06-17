@@ -10,156 +10,171 @@
 
 package cn.hashdata.grafana.api;
 
-import cn.hashdata.grafana.model.AddDataSourceCommand;
-import cn.hashdata.grafana.model.CreateDataSourceResponse;
-import cn.hashdata.grafana.model.DataSource;
-import cn.hashdata.grafana.model.DataSourceListItem;
-import cn.hashdata.grafana.model.Id;
-import cn.hashdata.grafana.model.SuccessMessage;
-import cn.hashdata.grafana.model.UpdateDataSourceCommand;
+import cn.hashdata.grafana.auth.OAuth;
+import cn.hashdata.grafana.model.*;
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.Ignore;
+import org.springframework.web.client.RestClientException;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * API tests for GrafanaDataSourceEndpointApi
  */
-@Ignore
 public class GrafanaDataSourceEndpointApiTest {
 
     private final GrafanaDataSourceEndpointApi api = new GrafanaDataSourceEndpointApi();
 
-    
+    @Before
+    public void setup() {
+        api.getApiClient().setBasePath("http://localhost:3000");
+
+        // Configure OAuth2 access token for authorization: oauth2
+        OAuth oauth2 = (OAuth) api.getApiClient().getAuthentication("oauth2");
+        oauth2.setAccessToken("eyJrIjoiazg3ZkVtM1dHb3V5eVV2T3F1OGU3MGVCQmtpd1ZKSXciLCJuIjoidGVzdCIsImlkIjoxfQ==");
+    }
+
+    private DataSource addDataSource() {
+        Map<String, String> options = new HashMap<>();
+        options.put("sslmode", "disable");
+
+        Map<String, String> secureOptions = new HashMap<>();
+        secureOptions.put("password", "123456");
+
+        AddDataSourceCommand request = new AddDataSourceCommand()
+                .type("postgres")
+                .name(UUID.randomUUID().toString())
+                .url("192.168.253.5:5432")
+                .access("proxy")
+                .database("postgres")
+                .user("postgres")
+                .jsonData(options)
+                .secureJsonData(secureOptions);
+        try {
+            CreateDataSourceResponse response = api.addDataSourceUsingPOST(request);
+            System.err.println(response);
+            return response.getDatasource();
+        } catch (RestClientException e) {
+            System.err.println(e);
+            Assert.fail();
+        }
+
+        return null;
+    }
+
     /**
      * AddDataSource
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws RestClientException if the Api call fails
      */
     @Test
     public void addDataSourceUsingPOSTTest() {
-        AddDataSourceCommand request = null;
-        CreateDataSourceResponse response = api.addDataSourceUsingPOST(request);
-
-        // TODO: test validations
+        addDataSource();
     }
-    
+
     /**
      * DeleteDataSourceByID
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws RestClientException if the Api call fails
      */
     @Test
     public void deleteDataSourceByIDUsingDELETETest() {
-        String id = null;
-        SuccessMessage response = api.deleteDataSourceByIDUsingDELETE(id);
-
-        // TODO: test validations
+        Long id = addDataSource().getId();
+        api.deleteDataSourceByIDUsingDELETE(id);
     }
-    
+
     /**
      * DeleteDataSourceByName
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws RestClientException if the Api call fails
      */
     @Test
     public void deleteDataSourceByNameUsingDELETETest() {
-        String name = null;
-        SuccessMessage response = api.deleteDataSourceByNameUsingDELETE(name);
-
-        // TODO: test validations
+        String name = addDataSource().getName();
+        api.deleteDataSourceByNameUsingDELETE(name);
     }
-    
+
     /**
      * GetDataSourceByID
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws RestClientException if the Api call fails
      */
     @Test
     public void getDataSourceByIDUsingGETTest() {
-        String id = null;
-        DataSource response = api.getDataSourceByIDUsingGET(id);
+        DataSource target = addDataSource();
+        DataSource response = api.getDataSourceByIDUsingGET(target.getId());
 
-        // TODO: test validations
+        Assert.assertEquals(target, response);
     }
-    
+
     /**
      * GetDataSourceByName
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws RestClientException if the Api call fails
      */
     @Test
     public void getDataSourceByNameUsingGETTest() {
-        String name = null;
-        DataSource response = api.getDataSourceByNameUsingGET(name);
-
-        // TODO: test validations
+        DataSource target = addDataSource();
+        DataSource response = api.getDataSourceByNameUsingGET(target.getName());
+        target.readOnly(true);
+        Assert.assertEquals(target, response);
     }
-    
+
     /**
      * GetDataSourceIDByName
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws RestClientException if the Api call fails
      */
     @Test
     public void getDataSourceIDByNameUsingGETTest() {
-        String name = null;
-        Id response = api.getDataSourceIDByNameUsingGET(name);
+        DataSource target = addDataSource();
+        Id response = api.getDataSourceIDByNameUsingGET(target.getName());
 
-        // TODO: test validations
+        Assert.assertEquals(target.getId(), response.getId());
     }
-    
+
     /**
      * GetDataSources
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws RestClientException if the Api call fails
      */
     @Test
     public void getDataSourcesUsingGETTest() {
+        addDataSource();
         List<DataSourceListItem> response = api.getDataSourcesUsingGET();
-
-        // TODO: test validations
+        Assert.assertFalse(response.isEmpty());
     }
-    
+
     /**
      * UpdateDataSource
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws RestClientException if the Api call fails
      */
     @Test
     public void updateDataSourceUsingPUTTest() {
-        UpdateDataSourceCommand request = null;
-        String id = null;
-        CreateDataSourceResponse response = api.updateDataSourceUsingPUT(request, id);
+        DataSource target = addDataSource();
 
-        // TODO: test validations
+        Map<String, String> options = new HashMap<>();
+        options.put("sslmode", "disable");
+
+        Map<String, String> secureOptions = new HashMap<>();
+        secureOptions.put("password", "1234567");
+
+
+        UpdateDataSourceCommand request = new UpdateDataSourceCommand()
+                .type("postgres")
+                .name(target.getName())
+                .url(target.getUrl())
+                .access(target.getAccess())
+                .database(target.getDatabase())
+                .user(target.getUser())
+                .jsonData(options)
+                .secureJsonData(secureOptions);
+
+        api.updateDataSourceUsingPUT(request, target.getId());
     }
-    
 }
