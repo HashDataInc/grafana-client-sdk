@@ -11,7 +11,7 @@ Generating client SDK for Grafana restful API using Swagger.
 ## For developers
 
 * Modify codegen.sh to generate sdk for any language and framework for your need.
-* Modify apidoc/grafana-client-swagger.json for new API
+* Modify grafana-fake-server for new API.
 * Please contribute back if this project helps you.
 
 ## Reference
