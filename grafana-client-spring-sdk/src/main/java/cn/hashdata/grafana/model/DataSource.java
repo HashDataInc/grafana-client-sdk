@@ -27,7 +27,7 @@ import java.util.Map;
 /**
  * DataSource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T14:29:19.214Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T15:47:40.212Z")
 public class DataSource {
   @JsonProperty("access")
   private String access = null;

@@ -28,6 +28,11 @@ CreateFolder
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
 // Configure OAuth2 access token for authorization: oauth2
 OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
 oauth2.setAccessToken("YOUR ACCESS TOKEN");
@@ -55,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+[basic](../README.md#basic), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -78,6 +83,11 @@ DeleteFolder
 //import cn.hashdata.grafana.api.GrafanaFolderEndpointApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
 
 // Configure OAuth2 access token for authorization: oauth2
 OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
@@ -106,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+[basic](../README.md#basic), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -129,6 +139,11 @@ GetFolderByUID
 //import cn.hashdata.grafana.api.GrafanaFolderEndpointApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
 
 // Configure OAuth2 access token for authorization: oauth2
 OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
@@ -157,7 +172,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+[basic](../README.md#basic), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -180,6 +195,11 @@ GetFolders
 //import cn.hashdata.grafana.api.GrafanaFolderEndpointApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
 
 // Configure OAuth2 access token for authorization: oauth2
 OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
@@ -208,7 +228,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+[basic](../README.md#basic), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -231,6 +251,11 @@ UpdateFolder
 //import cn.hashdata.grafana.api.GrafanaFolderEndpointApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
 
 // Configure OAuth2 access token for authorization: oauth2
 OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
@@ -261,7 +286,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+[basic](../README.md#basic), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 

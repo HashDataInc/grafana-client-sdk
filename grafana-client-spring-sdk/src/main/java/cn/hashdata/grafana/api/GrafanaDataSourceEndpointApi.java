@@ -29,7 +29,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T14:29:19.214Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T15:47:40.212Z")
 @Component("cn.hashdata.grafana.api.GrafanaDataSourceEndpointApi")
 public class GrafanaDataSourceEndpointApi {
     private ApiClient apiClient;
@@ -86,7 +86,7 @@ public class GrafanaDataSourceEndpointApi {
         };
         final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
 
-        String[] authNames = new String[] { "oauth2" };
+        String[] authNames = new String[] { "basic", "oauth2" };
 
         ParameterizedTypeReference<CreateDataSourceResponse> returnType = new ParameterizedTypeReference<CreateDataSourceResponse>() {};
         return apiClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
@@ -126,7 +126,7 @@ public class GrafanaDataSourceEndpointApi {
         final String[] contentTypes = { };
         final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
 
-        String[] authNames = new String[] { "oauth2" };
+        String[] authNames = new String[] { "basic", "oauth2" };
 
         ParameterizedTypeReference<SuccessMessage> returnType = new ParameterizedTypeReference<SuccessMessage>() {};
         return apiClient.invokeAPI(path, HttpMethod.DELETE, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
@@ -166,7 +166,7 @@ public class GrafanaDataSourceEndpointApi {
         final String[] contentTypes = { };
         final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
 
-        String[] authNames = new String[] { "oauth2" };
+        String[] authNames = new String[] { "basic", "oauth2" };
 
         ParameterizedTypeReference<SuccessMessage> returnType = new ParameterizedTypeReference<SuccessMessage>() {};
         return apiClient.invokeAPI(path, HttpMethod.DELETE, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
@@ -206,7 +206,7 @@ public class GrafanaDataSourceEndpointApi {
         final String[] contentTypes = { };
         final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
 
-        String[] authNames = new String[] { "oauth2" };
+        String[] authNames = new String[] { "basic", "oauth2" };
 
         ParameterizedTypeReference<DataSource> returnType = new ParameterizedTypeReference<DataSource>() {};
         return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
@@ -246,7 +246,7 @@ public class GrafanaDataSourceEndpointApi {
         final String[] contentTypes = { };
         final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
 
-        String[] authNames = new String[] { "oauth2" };
+        String[] authNames = new String[] { "basic", "oauth2" };
 
         ParameterizedTypeReference<DataSource> returnType = new ParameterizedTypeReference<DataSource>() {};
         return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
@@ -286,7 +286,7 @@ public class GrafanaDataSourceEndpointApi {
         final String[] contentTypes = { };
         final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
 
-        String[] authNames = new String[] { "oauth2" };
+        String[] authNames = new String[] { "basic", "oauth2" };
 
         ParameterizedTypeReference<Id> returnType = new ParameterizedTypeReference<Id>() {};
         return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
@@ -317,7 +317,7 @@ public class GrafanaDataSourceEndpointApi {
         final String[] contentTypes = { };
         final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
 
-        String[] authNames = new String[] { "oauth2" };
+        String[] authNames = new String[] { "basic", "oauth2" };
 
         ParameterizedTypeReference<List<DataSourceListItem>> returnType = new ParameterizedTypeReference<List<DataSourceListItem>>() {};
         return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
@@ -366,7 +366,7 @@ public class GrafanaDataSourceEndpointApi {
         };
         final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
 
-        String[] authNames = new String[] { "oauth2" };
+        String[] authNames = new String[] { "basic", "oauth2" };
 
         ParameterizedTypeReference<CreateDataSourceResponse> returnType = new ParameterizedTypeReference<CreateDataSourceResponse>() {};
         return apiClient.invokeAPI(path, HttpMethod.PUT, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);

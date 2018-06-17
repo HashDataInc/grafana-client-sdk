@@ -31,6 +31,11 @@ AddDataSource
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
 // Configure OAuth2 access token for authorization: oauth2
 OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
 oauth2.setAccessToken("YOUR ACCESS TOKEN");
@@ -58,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+[basic](../README.md#basic), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -81,6 +86,11 @@ DeleteDataSourceByID
 //import cn.hashdata.grafana.api.GrafanaDataSourceEndpointApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
 
 // Configure OAuth2 access token for authorization: oauth2
 OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
@@ -109,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+[basic](../README.md#basic), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -132,6 +142,11 @@ DeleteDataSourceByName
 //import cn.hashdata.grafana.api.GrafanaDataSourceEndpointApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
 
 // Configure OAuth2 access token for authorization: oauth2
 OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
@@ -160,7 +175,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+[basic](../README.md#basic), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -183,6 +198,11 @@ GetDataSourceByID
 //import cn.hashdata.grafana.api.GrafanaDataSourceEndpointApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
 
 // Configure OAuth2 access token for authorization: oauth2
 OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
@@ -211,7 +231,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+[basic](../README.md#basic), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -234,6 +254,11 @@ GetDataSourceByName
 //import cn.hashdata.grafana.api.GrafanaDataSourceEndpointApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
 
 // Configure OAuth2 access token for authorization: oauth2
 OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
@@ -262,7 +287,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+[basic](../README.md#basic), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -285,6 +310,11 @@ GetDataSourceIDByName
 //import cn.hashdata.grafana.api.GrafanaDataSourceEndpointApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
 
 // Configure OAuth2 access token for authorization: oauth2
 OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
@@ -313,7 +343,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+[basic](../README.md#basic), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -336,6 +366,11 @@ GetDataSources
 //import cn.hashdata.grafana.api.GrafanaDataSourceEndpointApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
 
 // Configure OAuth2 access token for authorization: oauth2
 OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
@@ -360,7 +395,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+[basic](../README.md#basic), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -383,6 +418,11 @@ UpdateDataSource
 //import cn.hashdata.grafana.api.GrafanaDataSourceEndpointApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
 
 // Configure OAuth2 access token for authorization: oauth2
 OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
@@ -413,7 +453,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+[basic](../README.md#basic), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 

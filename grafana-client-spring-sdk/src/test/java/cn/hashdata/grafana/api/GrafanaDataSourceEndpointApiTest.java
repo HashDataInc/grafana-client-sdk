@@ -10,17 +10,21 @@
 
 package cn.hashdata.grafana.api;
 
-import cn.hashdata.grafana.auth.OAuth;
-import cn.hashdata.grafana.model.*;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.springframework.web.client.RestClientException;
-
+import cn.hashdata.grafana.ApiClient;
+import cn.hashdata.grafana.model.AddDataSourceCommand;
+import cn.hashdata.grafana.model.CreateDataSourceResponse;
+import cn.hashdata.grafana.model.DataSource;
+import cn.hashdata.grafana.model.DataSourceListItem;
+import cn.hashdata.grafana.model.Id;
+import cn.hashdata.grafana.model.UpdateDataSourceCommand;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.web.client.RestClientException;
 
 /**
  * API tests for GrafanaDataSourceEndpointApi
@@ -31,8 +35,10 @@ public class GrafanaDataSourceEndpointApiTest {
 
     @Before
     public void setup() {
-        api.getApiClient().setBasePath("http://localhost:3000").setAccessToken(
-            "eyJrIjoiazg3ZkVtM1dHb3V5eVV2T3F1OGU3MGVCQmtpd1ZKSXciLCJuIjoidGVzdCIsImlkIjoxfQ==");
+        ApiClient client = api.getApiClient();
+        client.setBasePath("http://localhost:3000");
+        client.setUsername("admin");
+        client.setPassword("admin");
     }
 
     private DataSource addDataSource() {

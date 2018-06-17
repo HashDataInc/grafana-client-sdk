@@ -50,7 +50,7 @@ import cn.hashdata.grafana.auth.HttpBasicAuth;
 import cn.hashdata.grafana.auth.ApiKeyAuth;
 import cn.hashdata.grafana.auth.OAuth;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T14:29:19.214Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T15:47:40.212Z")
 @Component("cn.hashdata.grafana.ApiClient")
 public class ApiClient {
     public enum CollectionFormat {

@@ -27,7 +27,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T14:29:19.214Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T15:47:40.212Z")
 @Component("cn.hashdata.grafana.api.GrafanaDashboardEndpointApi")
 public class GrafanaDashboardEndpointApi {
     private ApiClient apiClient;
@@ -84,7 +84,7 @@ public class GrafanaDashboardEndpointApi {
         };
         final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
 
-        String[] authNames = new String[] { "oauth2" };
+        String[] authNames = new String[] { "basic", "oauth2" };
 
         ParameterizedTypeReference<CreateDashboardResponse> returnType = new ParameterizedTypeReference<CreateDashboardResponse>() {};
         return apiClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
@@ -124,7 +124,7 @@ public class GrafanaDashboardEndpointApi {
         final String[] contentTypes = { };
         final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
 
-        String[] authNames = new String[] { "oauth2" };
+        String[] authNames = new String[] { "basic", "oauth2" };
 
         ParameterizedTypeReference<Message> returnType = new ParameterizedTypeReference<Message>() {};
         return apiClient.invokeAPI(path, HttpMethod.DELETE, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
@@ -164,7 +164,7 @@ public class GrafanaDashboardEndpointApi {
         final String[] contentTypes = { };
         final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
 
-        String[] authNames = new String[] { "oauth2" };
+        String[] authNames = new String[] { "basic", "oauth2" };
 
         ParameterizedTypeReference<DashboardFullWithMeta> returnType = new ParameterizedTypeReference<DashboardFullWithMeta>() {};
         return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
@@ -195,7 +195,7 @@ public class GrafanaDashboardEndpointApi {
         final String[] contentTypes = { };
         final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
 
-        String[] authNames = new String[] { "oauth2" };
+        String[] authNames = new String[] { "basic", "oauth2" };
 
         ParameterizedTypeReference<List<DashboardTagCloudItem>> returnType = new ParameterizedTypeReference<List<DashboardTagCloudItem>>() {};
         return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
@@ -235,7 +235,7 @@ public class GrafanaDashboardEndpointApi {
         final String[] contentTypes = { };
         final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
 
-        String[] authNames = new String[] { "oauth2" };
+        String[] authNames = new String[] { "basic", "oauth2" };
 
         ParameterizedTypeReference<DashboardFullWithMeta> returnType = new ParameterizedTypeReference<DashboardFullWithMeta>() {};
         return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
