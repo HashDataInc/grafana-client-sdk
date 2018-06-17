@@ -27,7 +27,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T02:02:26.692Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T07:24:04.859Z")
 @Component("cn.hashdata.grafana.api.GrafanaFolderEndpointApi")
 public class GrafanaFolderEndpointApi {
     private ApiClient apiClient;

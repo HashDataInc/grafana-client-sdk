@@ -27,7 +27,7 @@ import java.util.Map;
 /**
  * DataSource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T02:02:26.692Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T07:24:04.859Z")
 public class DataSource {
   @JsonProperty("access")
   private String access = null;
@@ -51,7 +51,7 @@ public class DataSource {
   private Long id = null;
 
   @JsonProperty("jsonData")
-  private Map<String, String> jsonData = null;
+  private Object jsonData = null;
 
   @JsonProperty("name")
   private String name = null;
@@ -66,7 +66,7 @@ public class DataSource {
   private Boolean readOnly = null;
 
   @JsonProperty("secureJsonFields")
-  private Boolean secureJsonFields = null;
+  private Map<String, Boolean> secureJsonFields = null;
 
   @JsonProperty("type")
   private String type = null;
@@ -212,16 +212,8 @@ public class DataSource {
     this.id = id;
   }
 
-  public DataSource jsonData(Map<String, String> jsonData) {
+  public DataSource jsonData(Object jsonData) {
     this.jsonData = jsonData;
-    return this;
-  }
-
-  public DataSource putJsonDataItem(String key, String jsonDataItem) {
-    if (this.jsonData == null) {
-      this.jsonData = new HashMap<>();
-    }
-    this.jsonData.put(key, jsonDataItem);
     return this;
   }
 
@@ -230,11 +222,11 @@ public class DataSource {
    * @return jsonData
   **/
   @ApiModelProperty(value = "")
-  public Map<String, String> getJsonData() {
+  public Object getJsonData() {
     return jsonData;
   }
 
-  public void setJsonData(Map<String, String> jsonData) {
+  public void setJsonData(Object jsonData) {
     this.jsonData = jsonData;
   }
 
@@ -310,8 +302,16 @@ public class DataSource {
     this.readOnly = readOnly;
   }
 
-  public DataSource secureJsonFields(Boolean secureJsonFields) {
+  public DataSource secureJsonFields(Map<String, Boolean> secureJsonFields) {
     this.secureJsonFields = secureJsonFields;
+    return this;
+  }
+
+  public DataSource putSecureJsonFieldsItem(String key, Boolean secureJsonFieldsItem) {
+    if (this.secureJsonFields == null) {
+      this.secureJsonFields = new HashMap<>();
+    }
+    this.secureJsonFields.put(key, secureJsonFieldsItem);
     return this;
   }
 
@@ -320,11 +320,11 @@ public class DataSource {
    * @return secureJsonFields
   **/
   @ApiModelProperty(value = "")
-  public Boolean isSecureJsonFields() {
+  public Map<String, Boolean> getSecureJsonFields() {
     return secureJsonFields;
   }
 
-  public void setSecureJsonFields(Boolean secureJsonFields) {
+  public void setSecureJsonFields(Map<String, Boolean> secureJsonFields) {
     this.secureJsonFields = secureJsonFields;
   }
 

@@ -19,7 +19,7 @@ import java.util.Arrays;
 /**
  * TimePicker
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T02:02:26.692Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T07:24:04.859Z")
 public class TimePicker {
 
   @Override

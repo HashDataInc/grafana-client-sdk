@@ -27,7 +27,7 @@ import java.util.Map;
 /**
  * UpdateDataSourceCommand
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T02:02:26.692Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T07:24:04.859Z")
 public class UpdateDataSourceCommand {
   @JsonProperty("access")
   private String access = null;
@@ -60,7 +60,7 @@ public class UpdateDataSourceCommand {
   private Boolean readOnly = null;
 
   @JsonProperty("secureJsonData")
-  private String secureJsonData = null;
+  private Map<String, String> secureJsonData = null;
 
   @JsonProperty("type")
   private String type = null;
@@ -265,8 +265,16 @@ public class UpdateDataSourceCommand {
     this.readOnly = readOnly;
   }
 
-  public UpdateDataSourceCommand secureJsonData(String secureJsonData) {
+  public UpdateDataSourceCommand secureJsonData(Map<String, String> secureJsonData) {
     this.secureJsonData = secureJsonData;
+    return this;
+  }
+
+  public UpdateDataSourceCommand putSecureJsonDataItem(String key, String secureJsonDataItem) {
+    if (this.secureJsonData == null) {
+      this.secureJsonData = new HashMap<>();
+    }
+    this.secureJsonData.put(key, secureJsonDataItem);
     return this;
   }
 
@@ -275,11 +283,11 @@ public class UpdateDataSourceCommand {
    * @return secureJsonData
   **/
   @ApiModelProperty(value = "")
-  public String getSecureJsonData() {
+  public Map<String, String> getSecureJsonData() {
     return secureJsonData;
   }
 
-  public void setSecureJsonData(String secureJsonData) {
+  public void setSecureJsonData(Map<String, String> secureJsonData) {
     this.secureJsonData = secureJsonData;
   }
 

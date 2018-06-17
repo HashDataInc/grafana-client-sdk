@@ -20,14 +20,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * DataSourceListItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T02:02:26.692Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T07:24:04.859Z")
 public class DataSourceListItem {
   @JsonProperty("access")
   private String access = null;
@@ -45,7 +42,7 @@ public class DataSourceListItem {
   private Long id = null;
 
   @JsonProperty("jsonData")
-  private Map<String, String> jsonData = null;
+  private Object jsonData = null;
 
   @JsonProperty("name")
   private String name = null;
@@ -161,16 +158,8 @@ public class DataSourceListItem {
     this.id = id;
   }
 
-  public DataSourceListItem jsonData(Map<String, String> jsonData) {
+  public DataSourceListItem jsonData(Object jsonData) {
     this.jsonData = jsonData;
-    return this;
-  }
-
-  public DataSourceListItem putJsonDataItem(String key, String jsonDataItem) {
-    if (this.jsonData == null) {
-      this.jsonData = new HashMap<>();
-    }
-    this.jsonData.put(key, jsonDataItem);
     return this;
   }
 
@@ -179,11 +168,11 @@ public class DataSourceListItem {
    * @return jsonData
   **/
   @ApiModelProperty(value = "")
-  public Map<String, String> getJsonData() {
+  public Object getJsonData() {
     return jsonData;
   }
 
-  public void setJsonData(Map<String, String> jsonData) {
+  public void setJsonData(Object jsonData) {
     this.jsonData = jsonData;
   }
 

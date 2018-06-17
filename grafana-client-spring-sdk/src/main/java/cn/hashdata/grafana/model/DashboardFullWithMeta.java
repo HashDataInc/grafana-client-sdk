@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * DashboardFullWithMeta
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T02:02:26.692Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T07:24:04.859Z")
 public class DashboardFullWithMeta {
   @JsonProperty("dashboard")
   private Dashboard dashboard = null;

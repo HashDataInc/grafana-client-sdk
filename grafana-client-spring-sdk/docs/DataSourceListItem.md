@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **database** | **String** |  |  [optional]
 **_default** | **Boolean** |  |  [optional]
 **id** | **Long** |  |  [optional]
-**jsonData** | **Map&lt;String, String&gt;** |  |  [optional]
+**jsonData** | **Object** |  |  [optional]
 **name** | **String** |  |  [optional]
 **orgId** | **Long** |  |  [optional]
 **password** | **String** |  |  [optional]

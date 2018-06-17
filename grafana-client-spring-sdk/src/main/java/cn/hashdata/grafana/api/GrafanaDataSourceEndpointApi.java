@@ -29,7 +29,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T02:02:26.692Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T07:24:04.859Z")
 @Component("cn.hashdata.grafana.api.GrafanaDataSourceEndpointApi")
 public class GrafanaDataSourceEndpointApi {
     private ApiClient apiClient;
@@ -102,7 +102,7 @@ public class GrafanaDataSourceEndpointApi {
      * @return SuccessMessage
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public SuccessMessage deleteDataSourceByIDUsingDELETE(String id) throws RestClientException {
+    public SuccessMessage deleteDataSourceByIDUsingDELETE(Long id) throws RestClientException {
         Object postBody = null;
         
         // verify the required parameter 'id' is set
@@ -182,7 +182,7 @@ public class GrafanaDataSourceEndpointApi {
      * @return DataSource
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public DataSource getDataSourceByIDUsingGET(String id) throws RestClientException {
+    public DataSource getDataSourceByIDUsingGET(Long id) throws RestClientException {
         Object postBody = null;
         
         // verify the required parameter 'id' is set
@@ -335,7 +335,7 @@ public class GrafanaDataSourceEndpointApi {
      * @return CreateDataSourceResponse
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public CreateDataSourceResponse updateDataSourceUsingPUT(UpdateDataSourceCommand request, String id) throws RestClientException {
+    public CreateDataSourceResponse updateDataSourceUsingPUT(UpdateDataSourceCommand request, Long id) throws RestClientException {
         Object postBody = request;
         
         // verify the required parameter 'request' is set

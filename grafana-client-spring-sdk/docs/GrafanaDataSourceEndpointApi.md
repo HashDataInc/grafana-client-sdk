@@ -87,7 +87,7 @@ OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
 oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
 GrafanaDataSourceEndpointApi apiInstance = new GrafanaDataSourceEndpointApi();
-String id = "id_example"; // String | id
+Long id = 789L; // Long | id
 try {
     SuccessMessage result = apiInstance.deleteDataSourceByIDUsingDELETE(id);
     System.out.println(result);
@@ -101,7 +101,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| id |
+ **id** | **Long**| id |
 
 ### Return type
 
@@ -189,7 +189,7 @@ OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
 oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
 GrafanaDataSourceEndpointApi apiInstance = new GrafanaDataSourceEndpointApi();
-String id = "id_example"; // String | id
+Long id = 789L; // Long | id
 try {
     DataSource result = apiInstance.getDataSourceByIDUsingGET(id);
     System.out.println(result);
@@ -203,7 +203,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| id |
+ **id** | **Long**| id |
 
 ### Return type
 
@@ -390,7 +390,7 @@ oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
 GrafanaDataSourceEndpointApi apiInstance = new GrafanaDataSourceEndpointApi();
 UpdateDataSourceCommand request = new UpdateDataSourceCommand(); // UpdateDataSourceCommand | request
-String id = "id_example"; // String | id
+Long id = 789L; // Long | id
 try {
     CreateDataSourceResponse result = apiInstance.updateDataSourceUsingPUT(request, id);
     System.out.println(result);
@@ -405,7 +405,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **request** | [**UpdateDataSourceCommand**](UpdateDataSourceCommand.md)| request |
- **id** | **String**| id |
+ **id** | **Long**| id |
 
 ### Return type
 

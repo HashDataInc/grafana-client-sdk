@@ -24,12 +24,12 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Id
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T02:02:26.692Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T07:24:04.859Z")
 public class Id {
   @JsonProperty("id")
-  private String id = null;
+  private Long id = null;
 
-  public Id id(String id) {
+  public Id id(Long id) {
     this.id = id;
     return this;
   }
@@ -39,11 +39,11 @@ public class Id {
    * @return id
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
