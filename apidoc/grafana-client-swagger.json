@@ -81,6 +81,11 @@
             "oauth2": [
               "ROLE_USER"
             ]
+          },
+          {
+            "basic": [
+              "ROLE_USER"
+            ]
           }
         ]
       }
@@ -126,6 +131,11 @@
             "oauth2": [
               "ROLE_USER"
             ]
+          },
+          {
+            "basic": [
+              "ROLE_USER"
+            ]
           }
         ]
       }
@@ -163,6 +173,11 @@
         "security": [
           {
             "oauth2": [
+              "ROLE_USER"
+            ]
+          },
+          {
+            "basic": [
               "ROLE_USER"
             ]
           }
@@ -210,6 +225,11 @@
             "oauth2": [
               "ROLE_USER"
             ]
+          },
+          {
+            "basic": [
+              "ROLE_USER"
+            ]
           }
         ]
       },
@@ -253,6 +273,11 @@
             "oauth2": [
               "ROLE_USER"
             ]
+          },
+          {
+            "basic": [
+              "ROLE_USER"
+            ]
           }
         ]
       }
@@ -290,6 +315,11 @@
         "security": [
           {
             "oauth2": [
+              "ROLE_USER"
+            ]
+          },
+          {
+            "basic": [
               "ROLE_USER"
             ]
           }
@@ -343,6 +373,11 @@
             "oauth2": [
               "ROLE_USER"
             ]
+          },
+          {
+            "basic": [
+              "ROLE_USER"
+            ]
           }
         ]
       }
@@ -386,6 +421,11 @@
         "security": [
           {
             "oauth2": [
+              "ROLE_USER"
+            ]
+          },
+          {
+            "basic": [
               "ROLE_USER"
             ]
           }
@@ -433,6 +473,11 @@
             "oauth2": [
               "ROLE_USER"
             ]
+          },
+          {
+            "basic": [
+              "ROLE_USER"
+            ]
           }
         ]
       },
@@ -474,6 +519,11 @@
         "security": [
           {
             "oauth2": [
+              "ROLE_USER"
+            ]
+          },
+          {
+            "basic": [
               "ROLE_USER"
             ]
           }
@@ -520,6 +570,11 @@
         "security": [
           {
             "oauth2": [
+              "ROLE_USER"
+            ]
+          },
+          {
+            "basic": [
               "ROLE_USER"
             ]
           }
@@ -581,6 +636,11 @@
             "oauth2": [
               "ROLE_USER"
             ]
+          },
+          {
+            "basic": [
+              "ROLE_USER"
+            ]
           }
         ]
       },
@@ -623,6 +683,11 @@
         "security": [
           {
             "oauth2": [
+              "ROLE_USER"
+            ]
+          },
+          {
+            "basic": [
               "ROLE_USER"
             ]
           }
@@ -672,6 +737,11 @@
         "security": [
           {
             "oauth2": [
+              "ROLE_USER"
+            ]
+          },
+          {
+            "basic": [
               "ROLE_USER"
             ]
           }
@@ -725,6 +795,11 @@
             "oauth2": [
               "ROLE_USER"
             ]
+          },
+          {
+            "basic": [
+              "ROLE_USER"
+            ]
           }
         ]
       }
@@ -768,6 +843,11 @@
         "security": [
           {
             "oauth2": [
+              "ROLE_USER"
+            ]
+          },
+          {
+            "basic": [
               "ROLE_USER"
             ]
           }
@@ -828,6 +908,11 @@
             "oauth2": [
               "ROLE_USER"
             ]
+          },
+          {
+            "basic": [
+              "ROLE_USER"
+            ]
           }
         ]
       },
@@ -869,6 +954,11 @@
         "security": [
           {
             "oauth2": [
+              "ROLE_USER"
+            ]
+          },
+          {
+            "basic": [
               "ROLE_USER"
             ]
           }

@@ -31,6 +31,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfig {
   public static final String SECURITY_SCHEMA_OAUTH2 = "oauth2";
+  public static final String SECURITY_SCHEMA_BASIC = "basic";
   public static final String AUTHORIZATION_SCOPE_USRE = "ROLE_USER";
   public static final String AUTHORIZATION_SCOPE_USER_DESC = "login as user";
   public static final String AUTHORIZATION_SCOPE_SUPERVISOR = "ROLE_SUPERVISOR";
@@ -50,7 +51,7 @@ public class SwaggerConfig {
                         .build()
                         .apiInfo(apiInfo())
                         .securitySchemes(Arrays.asList(securitySchema(),
-                            new BasicAuth("basic")))
+                            new BasicAuth(SECURITY_SCHEMA_BASIC)))
                         .securityContexts(Arrays.asList(securityContext()));
 
     return docket;
@@ -85,7 +86,8 @@ public class SwaggerConfig {
     AuthorizationScope scope =
         new AuthorizationScope(AUTHORIZATION_SCOPE_USRE, AUTHORIZATION_SCOPE_USER_DESC);
     return Arrays.asList(
-        new SecurityReference(SECURITY_SCHEMA_OAUTH2, new AuthorizationScope[] {scope}));
+        new SecurityReference(SECURITY_SCHEMA_OAUTH2, new AuthorizationScope[] {scope}),
+        new SecurityReference(SECURITY_SCHEMA_BASIC, new AuthorizationScope[] {scope}));
   }
 
   @Bean
