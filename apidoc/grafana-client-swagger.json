@@ -877,6 +877,9 @@
     }
   },
   "securityDefinitions": {
+    "basic": {
+      "type": "basic"
+    },
     "oauth2": {
       "type": "oauth2",
       "tokenUrl": "/oauth/token",

@@ -13,6 +13,7 @@ import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.AuthorizationScope;
+import springfox.documentation.service.BasicAuth;
 import springfox.documentation.service.Contact;
 import springfox.documentation.service.GrantType;
 import springfox.documentation.service.OAuth;
@@ -48,7 +49,8 @@ public class SwaggerConfig {
                         .paths(PathSelectors.ant("/api/**"))
                         .build()
                         .apiInfo(apiInfo())
-                        .securitySchemes(Arrays.asList(securitySchema()))
+                        .securitySchemes(Arrays.asList(securitySchema(),
+                            new BasicAuth("basic")))
                         .securityContexts(Arrays.asList(securityContext()));
 
     return docket;
