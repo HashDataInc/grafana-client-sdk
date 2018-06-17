@@ -31,11 +31,8 @@ public class GrafanaDataSourceEndpointApiTest {
 
     @Before
     public void setup() {
-        api.getApiClient().setBasePath("http://localhost:3000");
-
-        // Configure OAuth2 access token for authorization: oauth2
-        OAuth oauth2 = (OAuth) api.getApiClient().getAuthentication("oauth2");
-        oauth2.setAccessToken("eyJrIjoiazg3ZkVtM1dHb3V5eVV2T3F1OGU3MGVCQmtpd1ZKSXciLCJuIjoidGVzdCIsImlkIjoxfQ==");
+        api.getApiClient().setBasePath("http://localhost:3000").setAccessToken(
+            "eyJrIjoiazg3ZkVtM1dHb3V5eVV2T3F1OGU3MGVCQmtpd1ZKSXciLCJuIjoidGVzdCIsImlkIjoxfQ==");
     }
 
     private DataSource addDataSource() {
