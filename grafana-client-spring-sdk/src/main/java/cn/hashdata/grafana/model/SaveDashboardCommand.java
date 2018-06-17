@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * SaveDashboardCommand
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T07:24:04.859Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T14:29:19.214Z")
 public class SaveDashboardCommand {
   @JsonProperty("dashboard")
   private Dashboard dashboard = null;

@@ -50,7 +50,7 @@ import cn.hashdata.grafana.auth.HttpBasicAuth;
 import cn.hashdata.grafana.auth.ApiKeyAuth;
 import cn.hashdata.grafana.auth.OAuth;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T07:24:04.859Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-17T14:29:19.214Z")
 @Component("cn.hashdata.grafana.ApiClient")
 public class ApiClient {
     public enum CollectionFormat {
@@ -105,6 +105,7 @@ public class ApiClient {
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications = new HashMap<String, Authentication>();
+        authentications.put("basic", new HttpBasicAuth());
         authentications.put("oauth2", new OAuth());
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
